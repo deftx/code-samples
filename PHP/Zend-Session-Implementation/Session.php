@@ -1,4 +1,10 @@
 <?php
+
+require_once APP_VENDORS . "Zend/Cache.php";
+require_once APP_VENDORS . "Zend/Session.php";
+require_once APP_VENDORS . "Zend/Session/SaveHandler/DbTable.php";
+require_once APP_VENDORS . "Zend/Registry.php";
+
 /**
  * Session handler and Cache setup (SAMPLE)
  * 
@@ -20,11 +26,6 @@ class Session extends Base
 	  */
 	public function __construct()
 	{
-		require_once APP_VENDORS . "Zend/Cache.php";
-		require_once APP_VENDORS . "Zend/Session.php";
-		require_once APP_VENDORS . "Zend/Session/SaveHandler/DbTable.php";
-		require_once APP_VENDORS . "Zend/Registry.php";
-
 		register_shutdown_function('session_write_close');
 
 		$DbAdapter = DbAdapter::getInstance();
