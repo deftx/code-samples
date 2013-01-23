@@ -11,19 +11,19 @@ require_once "Dropbox/autoload.php";
  *
  */
 class Packrat_Cloud_StorageService_Adapter_Dropbox
-	implements Zend_Cloud_StorageService_Adapter
+    implements Zend_Cloud_StorageService_Adapter
 {
-	const ROOT = 'root';
+    const ROOT = 'root';
 
-	/**
+    /**
 	 * Dropbox_API client
-	 *
-	 * @var Dropbox_API
-	 */
-	private $_dropboxClient = null;
+     *
+     * @var Dropbox_API
+     */
+    private $_dropboxClient = null;
 
-	public function __construct($options = array())
-	{
+    public function __construct($options = array())
+    {
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         }
@@ -38,7 +38,7 @@ class Packrat_Cloud_StorageService_Adapter_Dropbox
 
         // Setup Dropbox Client
         $this->_dropboxClient = new Dropbox_API($options['oauthClient'], $options[self::ROOT]);
-	}
+    }
 
     /**
      * Get an item from the given Dropbox path
@@ -56,7 +56,7 @@ class Packrat_Cloud_StorageService_Adapter_Dropbox
 
     /**
      * Store an item in Dropbox path
-	 *
+     *
      * @param string $destinationPath
      * @param mixed  $data
      * @param  array $options
@@ -173,7 +173,7 @@ class Packrat_Cloud_StorageService_Adapter_Dropbox
     }
 
     /**
-	 * Method required by interface. No comparable method on API.
+     * Method required by interface. No comparable method on API.
      *
      * @param  string $destinationPath
      * @param  array $metadata
@@ -198,8 +198,8 @@ class Packrat_Cloud_StorageService_Adapter_Dropbox
 
     /**
      * Get the concrete class for Dropbox API
-	 *
-	 * @return Dropbox_API
+     *
+     * @return Dropbox_API
      */
     public function getClient()
     {
